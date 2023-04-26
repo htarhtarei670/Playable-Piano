@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 35px 40px;
+    border-radius: 20px;
+    background: #141414;
+}
+
+
+/* start header area */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9ea3ad;
+}
+
+header h2 {
+    font-size: 1.4rem;
+    color: rgb(154, 22, 22);
+}
+
+header .column {
+    display: flex;
+    align-items: center;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+header .volume-bar input {
+    accent-color: #9ea3ad;
+    margin-left: 10px;
+}
+
+header .show-hide-bar input {
+    width: 60px;
+    height: 28px;
+    appearance: none;
+    background-color: #4B4B4B;
+    border-radius: 25px;
+    margin-left: 10px;
+    position: relative;
+    transition: all .7s ease-in-out;
+}
+
+header .show-hide-bar input::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #6e727b;
+    position: absolute;
+    border-radius: 50%;
+    top: 13%;
+    left: 3px;
+}
+
+.show-hide-bar input:checked::before {
+    left: 35px;
+    background-color: #f8fafc;
+}
+
+
+/* start piano key */
+
+.piano-keys {
+    list-style: none;
+    color: rgb(219, 34, 34);
+    margin-top: 40px;
+    display: flex;
+    cursor: pointer;
+}
+
+.piano-keys .key {
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.key span {
+    bottom: 20px;
+    position: absolute;
+}
+
+.piano-keys .white {
+    width: 70px;
+    height: 230px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+    margin-right: 2px;
+}
+
+.piano-keys .white.active {
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+.piano-keys .black {
+    width: 45px;
+    height: 140px;
+    background: linear-gradient(#333, #000);
+    z-index: 2;
+    border-radius: 0px 0px 6px 6px;
+    margin: 0px -23px
+}
+
+.piano-keys .black.active {
+    box-shadow: inset -5px -10px 10px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom, #000, #434343);
+}
+
+
+/* hide piona keyword class */
+
+.hide {
+    display: none;
+}
+
+
+/* responsive */
+
+@media screen and (max-width: 815px) {
+    .container {
+        padding: 25px;
+    }
+    header {
+        flex-direction: column;
+    }
+    header :where(h2,
+    .column) {
+        margin-bottom: 13px;
+    }
+    .volume-bar input {
+        max-width: 100px;
+    }
+    .piano-keys {
+        margin-top: 20px;
+    }
+    .piano-keys .key:where(:nth-child(9),
+     :nth-child(10)) {
+        display: none;
+    }
+    .piano-keys .black {
+        height: 100px;
+        width: 40px;
+        margin: 0 -20px 0 -20px;
+    }
+    .piano-keys .white {
+        height: 180px;
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .piano-keys .key:nth-child(13),
+    .piano-keys .key:nth-child(14),
+    .piano-keys .key:nth-child(15),
+    .piano-keys .key:nth-child(16),
+    .piano-keys .key :nth-child(17) {
+        display: none;
+    }
+    .piano-keys .white {
+        width: 50px;
+    }
+}
